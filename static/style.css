@@ -1,0 +1,187 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #0b0f14;
+  color: #d8e1ea;
+  height: 100vh;
+}
+
+.layout { display: flex; height: 100vh; }
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: #11161d;
+  border-right: 1px solid #1f2937;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar h2 { font-size: 14px; margin-bottom: 12px; color: #6b7a8a; }
+.sidebar button {
+  background: #1f2937;
+  color: #d8e1ea;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+.sidebar ul { list-style: none; overflow-y: auto; }
+.sidebar li {
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.sidebar li:hover { background: #1f2937; }
+
+/* Main */
+.chat { flex: 1; display: flex; flex-direction: column; }
+
+.char-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  border-bottom: 1px solid #1f2937;
+  background: #0f141b;
+}
+.avatar {
+  width: 60px; height: 60px;
+  font-size: 30px;
+  display: flex; align-items: center; justify-content: center;
+  background: #122b21;
+  border: 1px solid #1f4a37;
+  border-radius: 12px;
+}
+.char-card h1 { font-size: 20px; }
+.char-card p { color: #8a99a8; font-size: 13px; margin-top: 3px; }
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.bubble {
+  max-width: 70%;
+  padding: 12px 15px;
+  border-radius: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  font-size: 15px;
+}
+.bubble.user { align-self: flex-end; background: #155e3a; }
+.bubble.bot { align-self: flex-start; background: #1f2937; }
+
+.input-row {
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+  border-top: 1px solid #1f2937;
+  background: #0f141b;
+}
+.input-row input {
+  flex: 1;
+  padding: 13px;
+  border-radius: 10px;
+  border: 1px solid #2a3646;
+  background: #11161d;
+  color: #d8e1ea;
+  font-size: 15px;
+}
+.input-row button {
+  padding: 13px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #22c55e;
+  color: #04170b;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* Compact, professional list styling */
+.bubble.bot ul, .bubble.bot ol {
+  margin: 6px 0;
+  padding-left: 24px;
+}
+.bubble.bot li { margin: 3px 0; line-height: 1.5; }
+.bubble.bot li li { margin: 2px 0; }
+
+/* Tighten headings */
+.bubble.bot h1, .bubble.bot h2, .bubble.bot h3,
+.bubble.bot h4, .bubble.bot h5, .bubble.bot h6 {
+  margin: 14px 0 4px;      /* less top space, small gap before heading */
+}
+.bubble.bot p { margin: 5px 0; }
+.bubble.bot hr { margin: 10px 0; }
+/* Sidebar action buttons */
+.side-actions { display: flex; gap: 6px; margin-bottom: 14px; }
+.side-actions button { flex: 1; padding: 9px; }
+.side-actions .danger { background: #3a1f24; color: #ff9a9a; }
+.side-actions .danger:hover { background: #522a31; }
+
+/* History rows with dots */
+.hist-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: default;
+  position: relative;
+}
+.hist-item:hover { background: #1f2937; }
+.hist-item.active { background: #155e3a; }
+.hist-title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* Three-dot button */
+.menu-wrap { position: relative; }
+.dots {
+  background: none;
+  border: none;
+  color: #8a99a8;
+  font-size: 16px;
+  padding: 2px 6px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.dots:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+/* Dropdown menu */
+.menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 50;
+  background: #1a2330;
+  border: 1px solid #2a3646;
+  border-radius: 8px;
+  min-width: 130px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+.menu button {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  color: #d8e1ea;
+  text-align: left;
+  padding: 9px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.menu button:hover { background: #253040; }
+.menu .menu-danger { color: #ff9a9a; }
+.menu .menu-danger:hover { background: #3a1f24; }

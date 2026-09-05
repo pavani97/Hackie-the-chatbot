@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hacker Chat</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="layout">
+    <!-- Sidebar -->
+   <aside class="sidebar">
+  <h2>☰ Chat History</h2>
+  <div class="side-actions">
+    <button onclick="startNewChat()">+ New Chat</button>
+    <button class="danger" onclick="clearAllChats()">🗑 Clear All</button>
+  </div>
+  <ul id="historyList"></ul>
+</aside>
+    <!-- Main chat area -->
+    <main class="chat">
+      <header class="char-card">
+        <div class="avatar">💻</div>
+        <div>
+          <h1>Hackie</h1>
+          <p>A digital entity representing cyber intrusion and innovation.</p>
+        </div>
+      </header>
+
+      <div id="messages" class="messages"></div>
+
+      <form id="chatForm" class="input-row">
+        <input id="userInput" type="text" placeholder="Message Hacker..." autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+    </main>
+  </div>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/common.min.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
